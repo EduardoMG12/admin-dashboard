@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
-import { FiSettings } from "react-icons/fi";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import "./App.css";
-import Navbars from "@components/Navebars";
+import Navbars from "@components/Menus";
 
 const App: React.FC = () => {
 	return (
