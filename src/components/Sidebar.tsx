@@ -3,11 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 import { SiShopware } from "react-icons/si";
 import { MdOutlineCancel } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-
 import { links } from "../data/dummy";
+import { useStateContext } from "../contexts/ContextProvider";
 
 const Sidebar: React.FC = () => {
-	const activeMenu = true;
+	const { activeMenu, setActiveMenu } = useStateContext();
+
 	const activeLink =
 		"flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg texto-white text-md m-2";
 	const normalLink =
@@ -20,7 +21,7 @@ const Sidebar: React.FC = () => {
 					<div className="flex justify-between items-center">
 						<Link
 							to="/"
-							onClick={() => {}}
+							onClick={() => setActiveMenu(false)}
 							className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
 						>
 							<SiShopware /> <span>Shoppy</span>
@@ -28,7 +29,7 @@ const Sidebar: React.FC = () => {
 						<TooltipComponent content="Menu" position="BottomCenter">
 							<button
 								type="button"
-								onClick={() => {}}
+								onClick={() => setActiveMenu(!setActiveMenu)}
 								className="text-xl rounded-full
                                 p-3 hover:bg-light-gray mt-4 block md:hidden"
 							>
