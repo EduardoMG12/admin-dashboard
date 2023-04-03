@@ -2,14 +2,14 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import React, { ReactNode } from "react";
 import { FiSettings } from "react-icons/fi";
 import { Navbar, Sidebar } from "./index";
+import { useStateContext } from "../contexts/ContextProvider";
 
 export interface IPropsNavbar {
 	children: ReactNode;
 }
 
 const Menus: React.FC<IPropsNavbar> = ({ children }) => {
-	const activeMenu = true;
-
+	const { activeMenu } = useStateContext();
 	return (
 		<div className="flex relative dark:bg-main-dark-bg">
 			<div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
