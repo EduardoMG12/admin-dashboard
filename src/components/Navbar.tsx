@@ -44,8 +44,31 @@ const NavButton: React.FC<IPropsNavButton> = ({
 };
 
 const Navbar: React.FC = () => {
-	const { activeMenu, setActiveMenu, isClicked, handleClick } =
-		useStateContext();
+	const {
+		activeMenu,
+		setActiveMenu,
+		isClicked,
+		handleClick,
+		screenSize,
+		setScreenSize,
+	} = useStateContext();
+
+	useEffect(() => {
+		const handleResize = () => setScreenSize(window.innerWidth);
+
+		window.addEventListener("resize", handleResize);
+
+		handleResize();
+
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
+	useEffect(() => {
+		console.log(screenSize);
+		console.log(typeof screenSize);
+		if (screenSize && screenSize <= 900) setActiveMenu(false);
+		else setActiveMenu(true);
+	}, [screenSize]);
 	return (
 		<div className="flex justify-between p-2 md:mx-6 relative">
 			<NavButton
