@@ -13,6 +13,8 @@ interface IStateContext {
 	isClicked: IState;
 	setIsClicked: (value: IState) => void;
 	handleClick: (clicked: keyof IState) => void;
+	screenSize: number | undefined;
+	setScreenSize: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
 const initialState: IState = {
@@ -33,6 +35,8 @@ const StateContext = createContext<IStateContext>({
 	},
 	setIsClicked: () => {},
 	handleClick: () => {},
+	screenSize: 1920,
+	setScreenSize: () => {},
 });
 
 interface IPropsContextProvider {
@@ -44,7 +48,9 @@ export const ContextProvider: React.FC<IPropsContextProvider> = ({
 }) => {
 	const [activeMenu, setActiveMenu] = useState<boolean>(true);
 	const [isClicked, setIsClicked] = useState<IState>(initialState);
-	const handleClick = (clicked: string) => {
+	const [screenSize, setScreenSize] = useState<number | undefined>(1920);
+
+	const handleClick = (clicked: keyof IState) => {
 		setIsClicked({ ...initialState, [clicked]: true });
 	};
 
@@ -57,6 +63,8 @@ export const ContextProvider: React.FC<IPropsContextProvider> = ({
 					isClicked,
 					setIsClicked,
 					handleClick,
+					screenSize,
+					setScreenSize,
 				}}
 			>
 				{children}
