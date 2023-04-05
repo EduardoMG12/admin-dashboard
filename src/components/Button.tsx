@@ -3,7 +3,7 @@ import React from "react";
 interface IPropsButton {
 	bgColor: string;
 	color: string;
-	size: "xs" | "md" | "sm" | "base" | "lg" | "xl" | "2xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl";
+	size?: "xs" | "md" | "sm" | "base" | "lg" | "xl" | "2xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl";
 	text: string;
 	borderRadius: string;
 }
