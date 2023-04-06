@@ -43,9 +43,7 @@ interface IPropsContextProvider {
 	children: React.ReactNode;
 }
 
-export const ContextProvider: React.FC<IPropsContextProvider> = ({
-	children,
-}) => {
+export const ContextProvider: React.FC<IPropsContextProvider> = ({ children }) => {
 	const [activeMenu, setActiveMenu] = useState<boolean>(true);
 	const [isClicked, setIsClicked] = useState<IState>(initialState);
 	const [screenSize, setScreenSize] = useState<number | undefined>(1920);
@@ -57,15 +55,7 @@ export const ContextProvider: React.FC<IPropsContextProvider> = ({
 	return (
 		<>
 			<StateContext.Provider
-				value={{
-					activeMenu,
-					setActiveMenu,
-					isClicked,
-					setIsClicked,
-					handleClick,
-					screenSize,
-					setScreenSize,
-				}}
+				value={{ activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize }}
 			>
 				{children}
 			</StateContext.Provider>
