@@ -10,6 +10,7 @@ import {
 	Tooltip,
 } from "@syncfusion/ej2-react-charts";
 import { stackedCustomSeries, stackedPrimaryXAxis, stackedPrimaryYAxis } from "../../data/dummy";
+import { useStateContext } from "src/contexts/ContextProvider";
 
 interface IPropsStacked {
 	width: string;
@@ -17,6 +18,7 @@ interface IPropsStacked {
 }
 
 const Stacked: React.FC<IPropsStacked> = ({ width, height }) => {
+	const { currentColor } = useStateContext();
 	return (
 		<ChartComponent
 			width={width}
