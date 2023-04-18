@@ -7,7 +7,7 @@ import { themeColors } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const ThemeSettings: React.FC = () => {
-	const { currentColor, currentMode, setCurrentColor, setCurrentMode, themeSettings, setThemeSettings } =
+	const { currentColor, currentMode, setCurrentColor, setCurrentMode, themeSettings, setThemeSettings, setMode } =
 		useStateContext();
 	return (
 		<div className="bg-half-transparent w-screen h-screen fixed nav-item top-0 right-0">
@@ -33,7 +33,7 @@ const ThemeSettings: React.FC = () => {
 							name="theme"
 							value="Light"
 							className="cursor-pointer"
-							onChange={setCurrentMode}
+							onChange={setMode}
 							checked={currentMode === "Light"}
 						/>
 						<label htmlFor="light" className="ml-2 text-md cursor-pointer">
@@ -47,7 +47,7 @@ const ThemeSettings: React.FC = () => {
 							name="theme"
 							value="Dark"
 							className="cursor-pointer"
-							onChange={setCurrentMode}
+							onChange={setMode}
 							checked={currentMode === "Dark"}
 						/>
 						<label htmlFor="dark" className="ml-2 text-md cursor-pointer">
