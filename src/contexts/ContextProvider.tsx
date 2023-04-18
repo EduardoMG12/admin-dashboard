@@ -21,6 +21,7 @@ interface IStateContext {
 	setCurrentMode: (value: any) => void;
 	setThemeSettings: (value: any) => void;
 	themeSettings: boolean;
+	setMode: (value: any) => void;
 }
 
 const initialState: IState = {
@@ -49,6 +50,7 @@ const StateContext = createContext<IStateContext>({
 	setCurrentMode: () => {},
 	setThemeSettings: () => {},
 	themeSettings: false,
+	setMode: () => {},
 });
 
 interface IPropsContextProvider {
@@ -63,13 +65,13 @@ export const ContextProvider: React.FC<IPropsContextProvider> = ({ children }) =
 	const [currentMode, setCurrentMode] = useState("Light");
 	const [themeSettings, setThemeSettings] = useState(false);
 
-	const setMode = (e: any) => {
+	const setColor = (e: any) => {
 		setCurrentColor(e.target.value);
 
 		localStorage.setItem("colorMode", e.target.value);
 	};
 
-	const setColor = (e: any) => {
+	const setMode = (e: any) => {
 		setCurrentMode(e.target.value);
 
 		localStorage.setItem("themeMode", e.target.value);
@@ -95,6 +97,7 @@ export const ContextProvider: React.FC<IPropsContextProvider> = ({ children }) =
 					setCurrentMode,
 					themeSettings,
 					setThemeSettings,
+					setMode,
 				}}
 			>
 				{children}
