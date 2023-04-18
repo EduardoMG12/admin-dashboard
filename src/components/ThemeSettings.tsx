@@ -7,11 +7,19 @@ import { themeColors } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const ThemeSettings: React.FC = () => {
-	const { currentColor, currentMode, setCurrentColor, setCurrentMode, themeSettings, setThemeSettings, setMode } =
-		useStateContext();
+	const {
+		currentColor,
+		currentMode,
+		setColor,
+		setCurrentColor,
+		setCurrentMode,
+		themeSettings,
+		setThemeSettings,
+		setMode,
+	} = useStateContext();
 	return (
 		<div className="bg-half-transparent w-screen h-screen fixed nav-item top-0 right-0">
-			<div className="float-right h-screen dark:text-gray-200 bg-white dark:[#484B52] w-400">
+			<div className="float-right h-screen dark:text-gray-200 bg-white dark:[#484B52] w-400 dark:bg-main-dark-bg">
 				<div className="flex justify-between items-center p-4 ml-4">
 					<p className="font-semibold text-lg">Settings</p>
 					<button
@@ -65,7 +73,7 @@ const ThemeSettings: React.FC = () => {
 										type="button"
 										className="h-10 w-10 rounded-full cursor-pointer "
 										style={{ backgroundColor: item.color }}
-										onClick={() => setCurrentColor(item.color)}
+										onClick={() => setColor(item.color)}
 									>
 										<BsCheck
 											className={`ml-2 text-2xl text-white ${item.color === currentColor ? "block" : "hidden"}`}
