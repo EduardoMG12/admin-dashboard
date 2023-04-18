@@ -21,10 +21,13 @@ import {
 } from "./pages";
 
 import "./App.css";
+import { useStateContext } from "./contexts/ContextProvider";
 
 const App: React.FC = () => {
+	const { currentMode } = useStateContext();
+
 	return (
-		<div>
+		<div className={currentMode === "Dark" ? "dark" : ""}>
 			<BrowserRouter>
 				<Menus>
 					<Routes>
