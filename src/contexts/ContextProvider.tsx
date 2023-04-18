@@ -22,6 +22,7 @@ interface IStateContext {
 	setThemeSettings: (value: any) => void;
 	themeSettings: boolean;
 	setMode: (value: any) => void;
+	setColor: (value: any) => void;
 }
 
 const initialState: IState = {
@@ -51,6 +52,7 @@ const StateContext = createContext<IStateContext>({
 	setThemeSettings: () => {},
 	themeSettings: false,
 	setMode: () => {},
+	setColor: () => {},
 });
 
 interface IPropsContextProvider {
@@ -61,14 +63,14 @@ export const ContextProvider: React.FC<IPropsContextProvider> = ({ children }) =
 	const [activeMenu, setActiveMenu] = useState(true);
 	const [isClicked, setIsClicked] = useState<IState>(initialState);
 	const [screenSize, setScreenSize] = useState<number | undefined>(1920);
-	const [currentColor, setCurrentColor] = useState("#03C9D7");
-	const [currentMode, setCurrentMode] = useState("Light");
+	const [currentColor, setCurrentColor] = useState(localStorage.getItem("colorMode") || "#03C9D7");
+	const [currentMode, setCurrentMode] = useState(localStorage.getItem("themeMode") || "Light");
 	const [themeSettings, setThemeSettings] = useState(false);
 
 	const setColor = (e: any) => {
-		setCurrentColor(e.target.value);
+		setCurrentColor(e);
 
-		localStorage.setItem("colorMode", e.target.value);
+		localStorage.setItem("colorMode", e);
 	};
 
 	const setMode = (e: any) => {
@@ -98,6 +100,7 @@ export const ContextProvider: React.FC<IPropsContextProvider> = ({ children }) =
 					themeSettings,
 					setThemeSettings,
 					setMode,
+					setColor,
 				}}
 			>
 				{children}
