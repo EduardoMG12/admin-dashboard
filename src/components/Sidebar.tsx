@@ -17,10 +17,10 @@ const Sidebar: React.FC = () => {
 		"flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-black text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2";
 
 	return (
-		<div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10 dark:bg-main-dark-bg">
+		<div className=" h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10 dark:bg-main-dark-bg">
 			{activeMenu && (
 				<>
-					<div className="flex justify-between items-center">
+					<div className=" flex justify-between items-center">
 						<Link
 							to="/"
 							onClick={handleCloseSideBar}
@@ -33,7 +33,7 @@ const Sidebar: React.FC = () => {
 								type="button"
 								onClick={() => setActiveMenu(!setActiveMenu)}
 								className="text-xl rounded-full
-                                p-3 hover:bg-light-gray mt-4 block md:hidden"
+                                p-3 hover:bg-light-gray mt-4 block md:hidden dark:text-white dark:hover:text-black"
 							>
 								<MdOutlineCancel />
 							</button>
