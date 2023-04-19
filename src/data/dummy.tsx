@@ -121,7 +121,7 @@ const customerGridStatus = (props: any) => (
 		<p>{props.Status}</p>
 	</div>
 );
-export const areaPrimaryXAxis = {
+export const areaPrimaryXAxis: AxisModel = {
 	valueType: "DateTime",
 	labelFormat: "y",
 	majorGridLines: { width: 0 },
@@ -139,7 +139,7 @@ export const areaPrimaryYAxis = {
 	minorTickLines: { width: 0 },
 	labelStyle: { color: "gray" },
 };
-export const barPrimaryXAxis = {
+export const barPrimaryXAxis: AxisModel = {
 	valueType: "Category",
 	interval: 1,
 	majorGridLines: { width: 0 },
@@ -319,7 +319,7 @@ export const rangeColorMapping = [
 	},
 ];
 
-export const ColorMappingPrimaryXAxis = {
+export const ColorMappingPrimaryXAxis: AxisModel = {
 	valueType: "Category",
 	majorGridLines: { width: 0 },
 	title: "Months",
@@ -333,7 +333,7 @@ export const ColorMappingPrimaryYAxis = {
 	title: "Temperature",
 };
 
-export const FinancialPrimaryXAxis = {
+export const FinancialPrimaryXAxis: AxisModel = {
 	valueType: "DateTime",
 	minimum: new Date("2016, 12, 31"),
 	maximum: new Date("2017, 9, 30"),
