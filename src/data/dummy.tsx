@@ -121,7 +121,7 @@ const customerGridStatus = (props: any) => (
 		<p>{props.Status}</p>
 	</div>
 );
-export const areaPrimaryXAxis = {
+export const areaPrimaryXAxis: AxisModel = {
 	valueType: "DateTime",
 	labelFormat: "y",
 	majorGridLines: { width: 0 },
@@ -139,7 +139,7 @@ export const areaPrimaryYAxis = {
 	minorTickLines: { width: 0 },
 	labelStyle: { color: "gray" },
 };
-export const barPrimaryXAxis = {
+export const barPrimaryXAxis: AxisModel = {
 	valueType: "Category",
 	interval: 1,
 	majorGridLines: { width: 0 },
@@ -301,25 +301,33 @@ export const colorMappingData = [
 	["#FF4040"],
 ];
 
-export const rangeColorMapping = [
-	{ label: "1°C to 10°C", start: "1", end: "10", colors: colorMappingData[1] },
+interface RangeColorSettingModel {
+	label: string;
+	start: number;
+	end: number;
+	colors: (string | { x: string; y: number })[];
+	key?: number;
+}
+
+export const rangeColorMapping: RangeColorSettingModel[] = [
+	{ label: "1°C to 10°C", start: 1, end: 10, colors: colorMappingData[1] },
 
 	{
 		label: "11°C to 20°C",
-		start: "11",
-		end: "20",
+		start: 11,
+		end: 20,
 		colors: colorMappingData[2],
 	},
 
 	{
 		label: "21°C to 30°C",
-		start: "21",
-		end: "30",
+		start: 21,
+		end: 30,
 		colors: colorMappingData[3],
 	},
 ];
 
-export const ColorMappingPrimaryXAxis = {
+export const ColorMappingPrimaryXAxis: AxisModel = {
 	valueType: "Category",
 	majorGridLines: { width: 0 },
 	title: "Months",
@@ -333,7 +341,7 @@ export const ColorMappingPrimaryYAxis = {
 	title: "Temperature",
 };
 
-export const FinancialPrimaryXAxis = {
+export const FinancialPrimaryXAxis: AxisModel = {
 	valueType: "DateTime",
 	minimum: new Date("2016, 12, 31"),
 	maximum: new Date("2017, 9, 30"),
@@ -350,7 +358,11 @@ export const FinancialPrimaryYAxis = {
 	majorTickLines: { width: 0 },
 };
 
-export const LinePrimaryXAxis = {
+interface ILinePrimaryXAxis extends AxisModel {
+	background: string;
+}
+
+export const LinePrimaryXAxis: ILinePrimaryXAxis = {
 	valueType: "DateTime",
 	labelFormat: "y",
 	intervalType: "Years",
@@ -359,7 +371,7 @@ export const LinePrimaryXAxis = {
 	background: "white",
 };
 
-export const LinePrimaryYAxis = {
+export const LinePrimaryYAxis: AxisModel = {
 	labelFormat: "{value}%",
 	rangePadding: "None",
 	minimum: 0,
