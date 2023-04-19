@@ -350,7 +350,11 @@ export const FinancialPrimaryYAxis = {
 	majorTickLines: { width: 0 },
 };
 
-export const LinePrimaryXAxis = {
+interface ILinePrimaryXAxis extends AxisModel {
+	background: string;
+}
+
+export const LinePrimaryXAxis: ILinePrimaryXAxis = {
 	valueType: "DateTime",
 	labelFormat: "y",
 	intervalType: "Years",
@@ -359,7 +363,7 @@ export const LinePrimaryXAxis = {
 	background: "white",
 };
 
-export const LinePrimaryYAxis = {
+export const LinePrimaryYAxis: AxisModel = {
 	labelFormat: "{value}%",
 	rangePadding: "None",
 	minimum: 0,
