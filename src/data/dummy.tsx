@@ -301,20 +301,28 @@ export const colorMappingData = [
 	["#FF4040"],
 ];
 
-export const rangeColorMapping = [
-	{ label: "1°C to 10°C", start: "1", end: "10", colors: colorMappingData[1] },
+interface RangeColorSettingModel {
+	label: string;
+	start: number;
+	end: number;
+	colors: (string | { x: string; y: number })[];
+	key?: number;
+}
+
+export const rangeColorMapping: RangeColorSettingModel[] = [
+	{ label: "1°C to 10°C", start: 1, end: 10, colors: colorMappingData[1] },
 
 	{
 		label: "11°C to 20°C",
-		start: "11",
-		end: "20",
+		start: 11,
+		end: 20,
 		colors: colorMappingData[2],
 	},
 
 	{
 		label: "21°C to 30°C",
-		start: "21",
-		end: "30",
+		start: 21,
+		end: 30,
 		colors: colorMappingData[3],
 	},
 ];
