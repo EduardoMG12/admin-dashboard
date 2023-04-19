@@ -13,8 +13,8 @@ import { stackedCustomSeries, stackedPrimaryXAxis, stackedPrimaryYAxis } from ".
 import { useStateContext } from "src/contexts/ContextProvider";
 
 interface IPropsStacked {
-	width: string;
-	height: string;
+	width?: string;
+	height?: string;
 }
 
 const Stacked: React.FC<IPropsStacked> = ({ width, height }) => {
