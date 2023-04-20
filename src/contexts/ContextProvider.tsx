@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 
-interface IState {
+export interface IState {
 	chat: boolean;
 	cart: boolean;
 	userProfile: boolean;
