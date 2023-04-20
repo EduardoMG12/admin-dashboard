@@ -1,10 +1,11 @@
 import React, { createContext, useContext, useState } from "react";
 
-interface IState {
+export interface IState {
 	chat: boolean;
 	cart: boolean;
 	userProfile: boolean;
 	notification: boolean;
+	close: boolean;
 }
 
 interface IStateContext {
@@ -30,6 +31,7 @@ const initialState: IState = {
 	cart: false,
 	userProfile: false,
 	notification: false,
+	close: true,
 };
 
 const StateContext = createContext<IStateContext>({
@@ -40,6 +42,7 @@ const StateContext = createContext<IStateContext>({
 		cart: false,
 		userProfile: false,
 		notification: false,
+		close: true,
 	},
 	setIsClicked: () => {},
 	handleClick: () => {},
