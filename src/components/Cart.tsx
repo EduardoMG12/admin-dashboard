@@ -15,8 +15,8 @@ const Cart: React.FC = () => {
 				<div className="flex justify-between items-center">
 					<p className="font-semibold text-lg">Shopping Cart</p>
 					<Button
-						onClickArguments="chat"
 						icon={<MdOutlineCancel />}
+						onClickArguments="close"
 						color="rgb(153, 171, 180)"
 						bgHoverColor="light-gray"
 						size="2xl"
