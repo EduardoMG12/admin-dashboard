@@ -1,6 +1,6 @@
 # _Admin Dashboard_
 
-<img width="820" height="240" src="src/assets/videoREADME.gif"/>
+<img width="320 height="240" src="src/assets/videoREADME.gif"/>
 
 <details>
   <summary>Pt-BR <img width="20" src="https://flagicons.lipis.dev/flags/4x3/br.svg"></summary>
